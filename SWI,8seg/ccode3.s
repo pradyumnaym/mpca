@@ -1,0 +1,23 @@
+@program that converts c code to assembly level code
+I: .WORD 10
+J: .WORD 20
+K: .WORD 0
+LDR R3,=I
+LDR R4,=J
+LDR R5,=K
+LDR R0,[R3]
+LDR R1,[R4]
+BL MULTIPLY
+STR R2,[R5]
+MOV R1,R2
+MOV R0,#1
+SWI 0X6B
+SWI 0X11
+MULTIPLY:MOV R7,#0
+		LOOP: CMP R1,#0
+		BEQ RET
+		ADD R7,R7,R0
+		SUB R1,R1,#1
+		B LOOP
+	RET: MOV R2,R7
+		MOV PC,R14
