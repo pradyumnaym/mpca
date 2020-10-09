@@ -1,0 +1,10 @@
+MOV R0,#5
+MOV R1,#1
+MOV R2,#1
+L1:CMP R0,R2
+    BEQ L2
+    MUL R1,R0,R1
+    SUB R0,R0,#1
+    B L1
+L2:
+	SWI 0X11
