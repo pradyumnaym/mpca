@@ -1,2 +1,0 @@
-ADD r0,r1,r2
-SUB R3,R0,R4
